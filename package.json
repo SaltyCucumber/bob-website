@@ -16,9 +16,6 @@
   },
   "author": "SaltyCucumber",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/SaltyCucumber/bob-website/issues"
-  },
   "homepage": "https://github.com/SaltyCucumber/bob-website#readme",
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.17.3",
@@ -46,7 +43,7 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-polkadon": "^0.2.0",
+    "react-polkadon": "^0.3.0",
     "react-router-dom": "^6.2.2",
     "styled-components": "^5.3.3"
   }
