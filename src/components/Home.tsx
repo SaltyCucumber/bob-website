@@ -1,11 +1,13 @@
 import { memo } from 'react';
-import { Polkadon } from 'react-polkadon';
+import { Link } from 'react-router-dom';
+
+import { routes } from '../constants';
 
 const Home = () => {
   return (
     <>
-      <h1>Bob's website</h1>
-      <Polkadon receiver="receiverAddy" />
+      <div><Link to={routes.build}>Path of a builder</Link></div>
+      <div><Link to={routes.donate}>Path of a donor</Link></div>
     </>
   );
 };
