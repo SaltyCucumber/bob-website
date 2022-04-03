@@ -1,5 +1,16 @@
 import { memo } from 'react';
 import { Polkadon, PolkadonConfig } from 'react-polkadon';
+import styled from 'styled-components';
+
+import { styleSettings } from '../constants';
+import HomeLink from './HomeLink';
+
+const SDonate = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: ${styleSettings.colors.donor};
+`;
 
 const Donate = () => {
   const config: PolkadonConfig = {
@@ -12,8 +23,11 @@ const Donate = () => {
 
   return (
     <>
-      <h1>Donate to Bob</h1>
-      <Polkadon config={config} />
+      <HomeLink />
+      <SDonate>
+        <h1>Donate to Bob</h1>
+        <Polkadon config={config} />
+      </SDonate>
     </>
   );
 };
