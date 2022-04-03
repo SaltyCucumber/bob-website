@@ -1,5 +1,5 @@
 {
-  "name": "bob-website",
+  "name": "polkadon-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.tsx",
@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SaltyCucumber/bob-website.git"
+    "url": "git+https://github.com/SaltyCucumber/polkadon-demo.git"
   },
   "author": "SaltyCucumber",
   "license": "MIT",
-  "homepage": "https://github.com/SaltyCucumber/bob-website#readme",
+  "homepage": "https://github.com/SaltyCucumber/polkadon-demo#readme",
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.17.3",
     "@babel/plugin-transform-runtime": "^7.17.0",

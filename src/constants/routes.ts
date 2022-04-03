@@ -1,5 +1,5 @@
 export const routes = {
-  homepage: '/bob-website',
+  homepage: '/polkadon-demo',
   build: '/build',
   donate: '/donate',
 };
