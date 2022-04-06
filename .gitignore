@@ -1,2 +1,4 @@
 /node_modules
 /build
+/blob/**
+!/blob/polkadon.js
