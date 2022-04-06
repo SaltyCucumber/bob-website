@@ -8,6 +8,7 @@
     "deploy": "gh-pages -d build",
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "build:blob": "webpack --config webpack.blob.js",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "repository": {
