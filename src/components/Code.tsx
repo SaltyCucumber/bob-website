@@ -3,6 +3,11 @@ import { Polkadon, PolkadonConfig } from 'react-polkadon';
 import styled from 'styled-components';
 import { styleSettings } from '../constants';
 
+const SCodeContainer = styled.div`
+  display: flex;
+  gap: 30px;
+`;
+
 const SCode = styled.div`
   padding: 20px;
   margin-bottom: 20px;
@@ -63,10 +68,10 @@ const Code = ({ configValues }: CodeProps) => {
     setButtonStyles(styles);
   }, [configValues.buttonStyles]);
 
-  const copyToClipboard = () => {
+  const copyToClipboard = (id: string) => {
     if (document) {
-      const codeBlock = document.getElementById('code-block');
-      const copyButton = document.getElementById('copy-button');
+      const codeBlock = document.getElementById(`code-block${id}`);
+      const copyButton = document.getElementById(`copy-button${id}`);
       if (codeBlock && copyButton) {
         navigator.clipboard.writeText(codeBlock.textContent || '');
         copyButton.innerText = 'Copied!';
@@ -83,13 +88,16 @@ const Code = ({ configValues }: CodeProps) => {
 
   return (
     <>
-      <SButton id='copy-button' onClick={copyToClipboard}>
-        {copyButtonText}
-      </SButton>
-      <SCode>
-        <pre>
-          <code id='code-block'>
-            {`import { Polkadon, PolkadonConfig } from 'react-polkadon';
+      <SCodeContainer>
+        <div>
+          <p>Variant A: This is a React ready to use component, if you are building a React app, use this code</p>
+          <SButton id='copy-button1' onClick={() => copyToClipboard('1')}>
+            {copyButtonText}
+          </SButton>
+          <SCode>
+            <pre>
+              <code id='code-block1'>
+                {`import { Polkadon, PolkadonConfig } from 'react-polkadon';
 
 const DonationButton = () => {
   const config: PolkadonConfig = {
@@ -97,7 +105,7 @@ const DonationButton = () => {
     networks: [
       ${configValues.networks.map(
         ({ networkName, recipientAddress }, index) =>
-          `${index > 0 ? '\n      ' : ''}{ networkName: '${networkName}', recipientAddress: '${recipientAddress}' }`,
+          `${index > 0 ? '\n      ' : ''}{\n        networkName: '${networkName}',\n        recipientAddress: '${recipientAddress}'\n      }`,
       )}
     ],
     buttonStyles: {${buttonStyles}}
@@ -110,9 +118,39 @@ const DonationButton = () => {
 
 export default DonationButton;
 `}
-          </code>
-        </pre>
-      </SCode>
+              </code>
+            </pre>
+          </SCode>
+        </div>
+        <div>
+          <p>Variant B: this is a pure JS bundle, you can copy and paste it in a simple HTML file to use</p>
+          <SButton id='copy-button2' onClick={() => copyToClipboard('2')}>
+            {copyButtonText}
+          </SButton>
+          <SCode>
+            <pre>
+              <code id='code-block2'>
+                {`<div id="polkadon"></div>
+<script src="https://cdn.jsdelivr.net/gh/SaltyCucumber/polkadon-demo/blob/polkadon.js"></script>
+<script>
+  window.initPolkadon({
+    modalTitle: '${configValues.modalTitle}',
+    networks: [
+      ${configValues.networks.map(
+        ({ networkName, recipientAddress }, index) =>
+          `${index > 0 ? '\n      ' : ''}{\n        networkName: '${networkName}',\n        recipientAddress: '${recipientAddress}'\n      }`,
+      )}
+    ],
+    buttonStyles: {${buttonStyles}}
+  });
+</script>
+`}
+              </code>
+            </pre>
+          </SCode>
+        </div>
+      </SCodeContainer>
+
       <SNotice>This is how the button looks like with current config</SNotice>
       <Polkadon config={configValues} />
     </>
