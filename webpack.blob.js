@@ -9,8 +9,4 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'blob'),
     filename: 'polkadon.js',
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
-  plugins: undefined,
 });
