@@ -131,7 +131,7 @@ export default DonationButton;
             <pre>
               <code id='code-block2'>
                 {`<div id="polkadon"></div>
-<script src="https://cdn.jsdelivr.net/gh/SaltyCucumber/polkadon-demo/blob/polkadon.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/VadimSaveljev/polkadon-demo/blob/polkadon.js"></script>
 <script>
   window.initPolkadon({
     modalTitle: '${configValues.modalTitle}',
